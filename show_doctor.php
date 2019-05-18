@@ -30,17 +30,23 @@
     <title><?php echo $row['name']; ?></title>
 
     <style>
+        body {
+            background: url('img/1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
         .doctor {
-            background: rgb(200,200,200, 0.8);
+            border: 3px solid rgb(150,150,255);
+            background: rgb(200, 200, 200, 0.9);
             display: flex;
             flex-direction: column;
             justify-content: center;
             margin: auto;
-            width:88%;
-            padding: 1%;
+            width:90%;
+            padding: 2%;
         }
         .table {
-            width: 90%;
+            width: 60%;
         }
 
         .row {
@@ -55,22 +61,22 @@
         }
 
         .poster img{
-            width: 80%;
-            height: 100%;
+            width: 100%;
         }
 
         h1, h2, h3 {
-            background: #999;
+            background: #99f;
             padding: 2%;
+            border-radius: 10px;
         }
         table {
-            width: 95%;
-            background: #eee;
+            width: 100%;
+            background: #ddf;
         }
-        table, tr, td {
-            border: 1px solid #333;
+        table, tr, td, th {
+            border: 3px solid #333;
             border-collapse: collapse;
-            padding: 4%;
+            padding: 2%;
         }
 
         .related {
@@ -84,9 +90,10 @@
         .item {
             display: inline-block;
             width: 20%;
-            background: #eee;
+            background: #fff;
             padding: 1em;
             margin: 10px;
+            border-radius: 10px;
         }
     </style>
 
@@ -108,13 +115,17 @@
     <div class="doctor" style="">
         <div class="name">
             <h1>
-                Name of the doctor: <?php echo $row['name']; ?><br/>
+                Information about the doctor
             </h1>
         </div>
 
         <div class="row">
             <div class="table">
-                <table>
+                <table width="60%">
+                    <tr>
+                        <th>Name</th>
+                        <td><?php echo $row['name']; ?></td>
+                    </tr>
                     <tr>
                         <th>Gender</th>
                         <td><?php echo $row['gender']; ?></td>
