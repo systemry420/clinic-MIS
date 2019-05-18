@@ -14,12 +14,12 @@ if(!$username){
 
 if(isset($_GET['mode']) && $_GET['mode']=='delete'){
   
-  delete_film($_GET['id']);
-  header( "Location:films.php" );
+  delete_doctor($_GET['id']);
+  header( "Location:doctors.php" );
   exit;
 }
 
-$films = get_films();
+$doctors = get_doctors();
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +32,7 @@ $films = get_films();
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Films </title>
+<title>doctors </title>
 
 
 <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.min.css" />
@@ -50,7 +50,7 @@ $films = get_films();
 <div class="sidebar-heading">Admin Panel </div>
 <div class="list-group list-group-flush">
 <a href="dashboard.php" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-<a href="films.php" class="list-group-item list-group-item-action bg-light">Films</a>
+<a href="doctors.php" class="list-group-item list-group-item-action bg-light">doctors</a>
 <a href="messages.php" class="list-group-item list-group-item-action bg-light">Messages</a>
 </div>
 </div>
@@ -60,12 +60,12 @@ $films = get_films();
 <div id="page-content-wrapper">
 
 <div class="container-fluid">
-<h1 class="mt-4">Films</h1>
+<h1 class="mt-4">doctors</h1>
 
 
 <div class="row mb-3">
 <div class="col-4">
-<a class="btn btn-success" href="add-film.php?mode=add">Add a New Film</a>
+<a class="btn btn-success" href="add-doc.php?mode=add">Add a New doctor</a>
 </div>
 <div class="col-4">
 <a class="btn btn-danger" href="dashboard.php">Back to dashboard</a>
@@ -87,23 +87,23 @@ $films = get_films();
 </thead>
 <tbody>
 <?php
-  if(mysqli_num_rows($films) > 0){
-      while ($film= mysqli_fetch_array($films)) {
+  if(mysqli_num_rows($doctors) > 0){
+      while ($doctor= mysqli_fetch_array($doctors)) {
 
   ?>
   
   <tr >
-    <td><?php echo $film['id']?></td>
-    <td><?php echo $film['name']; ?></td>
-    <td><?php echo $film['type']?></td>
-    <td><?php echo $film['duration']?></td>
-    <td><?php echo $film['year']?></td>
-    <td><?php echo $film['poster']?></td>
-    <td><?php echo $film['rate']?></td>
-    <td><?php echo $film['video']?></td>
-    <td><?php echo $film['views']?></td>
+    <td><?php echo $doctor['id']?></td>
+    <td><?php echo $doctor['name']; ?></td>
+    <td><?php echo $doctor['type']?></td>
+    <td><?php echo $doctor['duration']?></td>
+    <td><?php echo $doctor['year']?></td>
+    <td><?php echo $doctor['poster']?></td>
+    <td><?php echo $doctor['rate']?></td>
+    <td><?php echo $doctor['video']?></td>
+    <td><?php echo $doctor['views']?></td>
     <td>
-      <a class="" href="<?php echo 'films.php?mode=delete&id='. $film['id'] ?>" onclick="return confirm('Delete This film?')">Delete
+      <a class="" href="<?php echo 'doctors.php?mode=delete&id='. $doctor['id'] ?>" onclick="return confirm('Delete This doctor?')">Delete
     </a>
     </td>
   </tr>

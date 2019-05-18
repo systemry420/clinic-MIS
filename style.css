@@ -1,0 +1,204 @@
+body{
+    background:url('img/background.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    font-family: arial, sans-serif;
+    font-size:20px;
+    margin:0;
+    padding:0;
+    line-height:24px;
+}
+
+.navbar{
+    text-align:center;
+    width:100%;
+    background:blue;
+    opacity:0.7;
+}
+
+.navbar .logout {
+    background: rgb(199, 0, 0);
+    float: right;
+}
+
+h1, h2 {
+    background: #999;
+    padding: 2%;
+}
+
+.navbar ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+    position:relative;
+    box-shadow: 0px 2px 1px 1px #555;
+}
+
+.navbar ul li a{
+    display:block;
+    padding: 1em;
+    color:white;
+    text-decoration:none;
+    width:140px;
+}
+
+.navbar ul:after{
+    content: "";
+    clear:both;
+    display:block;
+}
+
+.navbar ul li{
+    float:left;
+    list-style-type:none;
+}
+
+.navbar ul ul{
+    display:none;
+}
+
+.navbar ul li:hover > ul{
+    display:block;
+}
+
+.navbar ul li:hover{
+    background:black;
+    transition:0.5s;
+}
+.navbar ul li a:hover{
+    color:white;
+}
+
+.navbar ul ul{
+    background:black;
+    padding:0;
+    margin:0;
+    position:absolute;
+    top:100%;
+}
+
+.navbar ul ul li{
+    float:none;
+    position:relative;
+}
+
+.navbar ul ul li a{
+    padding:20px;
+    color:white;
+    width:300px;
+    text-align:left;
+}
+
+.navbar ul ul li a:hover{
+    background:lightblue;
+    color:black;
+    transition:0.5s;
+}
+
+.form{
+    position: relative;
+    top:30%; 
+    width:40%;
+    min-height:440px;
+    box-sizing:border-box;
+    padding: 50px;
+    background:rgba(0,0,0,0.8);
+    margin: 2em auto;
+    font-weight:bold;
+    color:#fff;
+    border-radius: 5%;
+}
+
+form {
+    margin-top: 5%;
+}
+
+.main div.tile {
+	width: 25%;
+	margin: 15px;
+	background-color:#eee;
+	box-shadow: 0 0 3px 3px #555;
+	border-radius: 5px;
+	padding: 20px;
+	color: #222;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+
+.main div.tile:hover {
+    transition: 1s;
+    transform: scale(1.1);
+}
+
+.form input{
+    width:100%;
+    margin-bottom:30px;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"]{
+    border:none;
+    border-bottom:1px solid #fff;
+    background:transparent;
+    outline:none;
+    height:40px;
+    color:#fff;
+    font-size:16px;
+}
+.form input[type="submit"],
+.form input[type="reset"]
+{
+    border:none;
+    outline:none;
+    height:40px;
+    color:#fff;
+    font-size:16px;
+    background:rgb(255,38,126);
+    cursor:pointer;
+    border-radius:20px;
+}
+
+.form input[type="submit"]:hover,
+.form input[type="reset"]:hover
+{
+    background:#efed40;
+    color:#262626;
+}
+
+.form a{
+    color:#fff;
+    font-size:14px;
+    font-weight:bold;
+}
+
+::placeholder{
+    color:rgba(255,255,255,0.5);
+}
+
+.user{
+    width:100px;
+    height:100px;
+    overflow:hidden;
+    position:absolute;
+    top:calc(-100px/2);
+    left:calc(50% - 50px);
+    border-radius:50%;
+}
+
+textarea {
+    resize: none;
+}
+
+
+
+@media screen and (max-width: 900px){
+    .navbar ul li {
+        height: 55px;
+    }
+
+    form {
+        width: 90%;
+    }
+}

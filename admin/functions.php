@@ -2,13 +2,13 @@
 
 function getConnection(){
     $connect=mysqli_connect('localhost','root','');
-    $selected=mysqli_select_db($connect,'project');
+    $selected=mysqli_select_db($connect,'hospital');
     return $connect;
 }
 
-function get_films(){
+function get_doctors(){
 	$conn = getConnection();
-	$sql = "SELECT * FROM film";
+	$sql = "SELECT * FROM doctor";
 
     $result=mysqli_query($conn, $sql);
 
@@ -24,28 +24,28 @@ function get_messages(){
 	return $result;
 }
 
-function add_film($data){
+function add_doctor($data){
     // print_r($data);
     $name = $data['name'];
-    $type = $data['type'];
-    $dur = $data['duration'];
-    $yr = $data['year'];
-    $photo = $data['photo_link']['name'];
-    $rate = $data['rate'];
-    $vid = $data['video'];
+    $gender = $data['gender'];
+    $tele = $data['tele'];
+    $address = $data['address'];
+    $from = $data['from'];
+    $to = $data['to'];
+    $spec = $data['spec'];
 
     $conn = getConnection();
-    $sql = 'INSERT INTO film (`name`, `type`, `duration`, `year`, `poster`, `rate`, `video`, `views`) VALUES '
-            .'("'.$name.'", "'.$type.'","'.$dur.'","'.$yr.'","'.$photo.'","'.$rate.'","'.mysql_real_escape_string($vid).'", "0")' ;
+    $sql = 'INSERT INTO doctor (`id`, `gender`,`name`, `tele`, `address`, `from_time`, `to_time`, `spec_id`, `status`) VALUES '
+            .'(Null, "'.$gender.'", "'.$name.'", "'.$tele.'","'.$address.'","'.$from.':00:00","'.$to.':00:00","'.$spec.'", "0")' ;
 
     $result=mysqli_query($conn, $sql);
     return $result;
 }
 
 
-function delete_film($id){
+function delete_doctor($id){
 	$conn = getConnection();
-    $sql = "DELETE FROM film WHERE id ='$id' LIMIT 1";
+    $sql = "DELETE FROM doctor WHERE id ='$id' LIMIT 1";
     $result=mysqli_query($conn, $sql);
 
     return $result;
@@ -57,30 +57,6 @@ function delete_message($id){
     $result=mysqli_query($conn, $sql);
 
     return $result;
-}
-
-function addImage($image){
-    $target = '../img/$image["name"]';
-
-    $uploadOk = 1;
-
-    $imageFileType = strtolower(pathinfo($target,PATHINFO_EXTENSION));
-    if($imageFileType != "jpg" &&  $imageFileType != "png") {
-        $uploadOk = 0;
-    }
-
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 1) {
-        if (move_uploaded_file($image["tmp_name"], $target)) {
-            // echo $target;
-            return $target;
-        }
-    }
-}
-
-
-function get_new_salt(){
-    return base_convert(sha1(uniqid(mt_rand(), true)), 16, 36);
 }
 
 ?>

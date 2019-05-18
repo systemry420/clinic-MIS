@@ -13,19 +13,17 @@ if(!$username){
   exit;
 }
 
-$films = [];
+$doctors = [];
 
 if ( isset( $_POST['saveChanges'] ) ) {
   if($_GET['mode']=='add'){
-
-    $_POST['photo_link'] = $_FILES['photo'];
-    $res = add_film($_POST);
+    $res = add_doctor($_POST);
   }
   if($res){
     echo '<script> alert("Done!!"); </script>';
   }
   else{
-    echo '<script> alert(" '. $res .' "); </script>';
+    echo '<script> alert("err: '. $res .' "); </script>';
   }
 }
 
@@ -59,7 +57,7 @@ if ( isset( $_POST['saveChanges'] ) ) {
       <div class="sidebar-heading">Admin Panel </div>
       <div class="list-group list-group-flush">
         <a href="dashboard.php" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="films.php" class="list-group-item list-group-item-action bg-light">Films</a>
+        <a href="doctors.php" class="list-group-item list-group-item-action bg-light">doctors</a>
         <a href="messages.php" class="list-group-item list-group-item-action bg-light">Messages</a>
       </div>
     </div>
@@ -69,73 +67,76 @@ if ( isset( $_POST['saveChanges'] ) ) {
     <div id="page-content-wrapper">
 
       <div class="container-fluid">
-        <h1 class="mt-4">Films Details</h1>
+        <h1 class="mt-4">doctors Details</h1>
         <div class="col-10">
           <form action="?mode=<?php echo $_GET['mode']  ;?>" method="post" enctype="multipart/form-data">
   
-          <input type="hidden" name="id" value="<?php echo (isset( $film['id'])? $film['id']:'') ; ?>"/>
+          <input type="hidden" name="id" value="<?php echo (isset( $doctor['id'])? $doctor['id']:'') ; ?>"/>
 
           <div class="form-group row">
             <label for="name" class="col-sm-2 col-form-label">Name </label>
             <div class="col-sm-10">
-               <input class="form-control" type="text" name="name" id="name" placeholder=""  autofocus required maxlength="255" value="<?php echo htmlspecialchars( (isset( $film['name'])? $film['name']:'') )?>" />
+               <input class="form-control" type="text" name="name" id="name" placeholder=""  autofocus required maxlength="255" value="<?php echo htmlspecialchars( (isset( $doctor['name'])? $doctor['name']:'') )?>" />
             </div>
           </div>
 
+<!-- gender -->
+<div class="form-group row">
+            <div class="col-sm-4">
+                <label for="type" class="col-form-label">Gender</label>
+            </div>
+            <div class="col-sm-4">
+                <label for="type" class="col-form-label">Male</label>
+                <input type="radio" name="gender" value="male" id="male">
+            </div>
+            <div class="col-sm-4">
+                <label for="type" class="col-form-label">Female</label>
+                <input type="radio" name="gender" value="female" id="female">
+            </div>
+          </div>
+
+<!-- tele -->
           <div class="form-group row">
-            <label for="type" class="col-sm-2 col-form-label">Type</label>
+            <label for="duration" class="col-sm-2 col-form-label">Telephone</label>
             <div class="col-sm-10">
-              <select name="type" id="type" class="form-control">
-                <option value="action">Action</option>
-                <option value="comedy">Comedy</option>
-                <option value="romance">Romance</option>
-                <option value="cartoon">Cartoon</option>
+               <input class="form-control" type="text" name="tele"  required/>
+            </div>
+          </div>
+
+<!-- address -->
+          <div class="form-group row">
+            <label for="year" class="col-sm-2 col-form-label">Location</label>
+            <div class="col-sm-10">
+               <input class="form-control" type="text" name="address"  required/>
+            </div>
+          </div>
+
+<!-- from -->
+          <div class="form-group row">
+            <label for="rate" class="col-sm-2 col-form-label">From</label>
+            <div class="col-sm-10">
+               <input class="form-control" type="number" min="0" max="23" name="from"  required/>
+            </div>
+          </div>
+
+<!-- to -->
+          <div class="form-group row">
+            <label for="video" class="col-sm-2 col-form-label">To</label>
+            <div class="col-sm-10">
+               <input class="form-control" type="number" min="0" max="23" name="to"  required/>
+            </div>
+          </div>
+
+<!-- spec -->
+          <div class="form-group row">
+            <label for="type" class="col-sm-2 col-form-label">Specialization</label>
+            <div class="col-sm-10">
+              <select name="spec" id="type" class="form-control">
+                <option value="2">obstetrics</option>
+                <option value="3">orthopedic</option>
+                <option value="4">neurolgy</option>
+                <option value="5">gastroenterology</option>
               </select>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="duration" class="col-sm-2 col-form-label">Duration</label>
-            <div class="col-sm-10">
-               <input class="form-control" type="text" name="duration" id="duration" required/>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="year" class="col-sm-2 col-form-label">Year</label>
-            <div class="col-sm-10">
-               <input class="form-control" type="number" name="year" id="year" required/>
-            </div>
-          </div>
-
-          
-          <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">Photo </label>
-            <div class="col-sm-10">
-               <input type="file" name="photo" id="photo" placeholder=""  autofocus maxlength="255"  required/>
-                <input type="hidden" name="photo_link" value="<?php echo (isset( $film['photo_link'])? $film['photo_link']:'') ; ?>"/>
-
-                <?php if($_GET['mode'] == 'edit'): ?>
-
-                  <a href="../img/<?php echo $film['photo_link']; ?>" target="_blank">
-                    <img src="../img/<?php echo $film['photo_link']; ?>" style="width: 200px;">
-                  </a>
-                  
-                <?php endif; ?>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="rate" class="col-sm-2 col-form-label">Rate</label>
-            <div class="col-sm-10">
-               <input class="form-control" type="number" name="rate" id="rate" required/>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="video" class="col-sm-2 col-form-label">Video</label>
-            <div class="col-sm-10">
-               <input class="form-control" type="text" name="video" id="video" required/>
             </div>
           </div>
 
