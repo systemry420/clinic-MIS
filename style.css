@@ -106,11 +106,11 @@ h1, h2 {
 
 .main div.tile {
     width: 25%;
-    margin:5%;
+    margin:2%;
     box-shadow: 0 0 15px #aaa;
-    background: #efefef;
+    background: #fff;
     padding: 1%;
-    border-radius: 1%;
+    border-radius: 2%;
 	color: #222;
 	display: flex;
 	justify-content: center;
@@ -152,7 +152,6 @@ form input{
 }
 
 .form a{
-    color:#fff;
     font-size:14px;
     font-weight:bold;
 }

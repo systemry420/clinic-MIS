@@ -31,9 +31,9 @@
 		?>
 					<div class="tile">
 						<div class="item">
-							<form action="" method="get">
-								<a href="<?php echo '?link='.$row["id"]; ?>">
-									<img src="<?php echo 'img/'.$row['img']; ?>" style="width: 90%; max-height: 200px;" /><br>
+							<form action="?" method="get">
+								<a href="<?php echo 'special/'.$row["name"].'.php'; ?>">
+									<img src="<?php echo 'img/'.$row['img']; ?>" style="width: 90%; max-height: 40%;" /><br>
 									<h3 class="text-info"><?php echo $row["name"]; ?></h3>
 								</a>
 							</form>
@@ -42,6 +42,7 @@
 		<?php
 				}
 			}
+
 		?>
 	</div>
 
