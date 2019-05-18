@@ -6,18 +6,16 @@
 
         if(isset($_SESSION['link'])){
             $id = $_SESSION['link'];
-            $res = get_doctor_details($id);
+            $res = get_staff_details($id);
             $row = mysqli_fetch_array($res);
         }
     
         if(isset($_GET['link'])){
             $id = $_GET['link'];
-            $res = get_doctor_details($id);
+            $res = get_staff_details($id);
             $row = mysqli_fetch_array($res);
         }
         
-        $sql = 'UPDATE `doctor` SET `views`= `views`+1  WHERE `id`='.$id;
-        mysqli_query($conn, $sql);
 
 ?>
 <!DOCTYPE html>
@@ -30,12 +28,7 @@
     <title><?php echo $row['name']; ?></title>
 
     <style>
-        body {
-            background: url('img/1.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        .doctor {
+        .staff {
             border: 3px solid rgb(150,150,255);
             background: rgb(200, 200, 200, 0.9);
             display: flex;
@@ -61,8 +54,8 @@
         }
 
         .poster img{
-            width: 100%;
-            border-radius: 50%;
+            width: 80%;
+            height: 70%;
         }
 
         table {
@@ -108,10 +101,10 @@
 
     </div>
     
-    <div class="doctor" style="">
+    <div class="staff" style="">
         <div class="name">
             <h1>
-                Information about the doctor
+                Information about the employee
             </h1>
         </div>
 
@@ -131,67 +124,21 @@
                         <td><?php echo $row['tele']; ?></td>
                     </tr>
                     <tr>
-                        <th>email</th>
-                        <td><?php echo $row['email']; ?></td>
-                    </tr>
-                    <tr>
                         <th>Address</th>
                         <td><?php echo $row['address']; ?></td>
                     </tr>
                     <tr>
-                        <th>From</th>
-                        <td><?php echo $row['from_time']; ?></td>
+                        <th>Day</th>
+                        <td><?php echo $row['day']; ?></td>
                     </tr>
-                    <tr>
-                        <th>To</th>
-                        <td><?php echo $row['to_time']; ?></td>
-                    </tr>
-                    <tr>
-                        <th>Specialization</th>
-                        <td>
-                            <?php 
-                                $sql = 'SELECT * FROM spec where id='.$row['spec_id']; 
-                                $res = mysqli_query($conn, $sql);
-                                $r = mysqli_fetch_array($res);
-                                echo $r['name'];
-                            ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Status</th>
-                        <td><?php echo $row['status']; ?></td>
-                    </tr>
+
                 </table>
             </div>
             <div class="poster" >
-                <img src="img/doc.jpg" />
+                <img src="img/emp.png" />
             </div>
         </div>
         
-        <h3>Related doctors</h3>
-        <div class="related">
-            <?php
-                $sql = "SELECT * FROM `doctor` WHERE `spec_id` ='".$row['spec_id'] ."'";
-
-                $result=mysqli_query($conn, $sql);
-
-                if(mysqli_num_rows($result) > 0){
-                    while ($r = mysqli_fetch_array($result)) {
-            ?>
-                <div class="item">
-                    <form action="" method="get">
-                        <a href="<?php echo '?link='.$r["id"]; ?>">
-                            <img src="img/doc.jpg" style="width: 100%; max-height: 150px;" /><br>
-                            <h4><?php echo $r["name"]; ?></h4>
-                        </a>
-                    </form>
-                </div>
-            <?php
-                    }
-                }
-            ?>
-
-        </div>
 </div>
 
 </body>

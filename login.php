@@ -9,7 +9,12 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" type="text/css" href="admin/resources/bootstrap/css/bootstrap.min.css" />
 
-    <title>LOGIN</title>
+	<title>LOGIN</title>
+	<style>
+		h1, h2, h3{
+			color: #eee;
+		}
+	</style>
 </head>
 <body>
 <div class ="navbar">

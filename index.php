@@ -7,11 +7,6 @@
 <head>
 	<title>SIHATI</title>
 	<link rel="stylesheet" href="style.css">
-	<style>
-		h1, h2 {
-			background: #ccc;
-		}
-	</style>
 </head>
 <body>
 
@@ -23,7 +18,6 @@
 	</div>
 
 	<h1 style="text-align:center">Welcome to our website</h1>
-	<h2 style="text-align:center">In order to view films you have to login first!</h2>
 	<div class="main" style="display: flex; flex-wrap: wrap; justify-content: center;">
 		<?php
 			require('functions.php');

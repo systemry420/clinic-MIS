@@ -38,5 +38,14 @@ function get_doctor_details($id){
 
 
 
+function get_staff_details($id){
+	$conn = getConnection();
+	$sql = "SELECT * FROM staff where id='$id'";
+
+    $result=mysqli_query($conn, $sql);
+
+	return $result;
+}
+
 
 ?>

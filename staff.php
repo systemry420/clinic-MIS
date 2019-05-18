@@ -34,7 +34,7 @@
 						<div class="item">
 							<form action="" method="get">
 								<a href="<?php echo '?link='.$row['id']; ?>">
-									<img src="img/doc.jpg" style="width: 90%; max-height: 40%;" /><br>
+									<img src="img/emp.png" style="width: 90%; max-height: 40%;" /><br>
 									<h3 class="text-info"><?php echo $row["name"]; ?></h3>
 								</a>
 							</form>
@@ -50,7 +50,7 @@
 	<?php
 		if(isset($_GET['link'])){
 			$_SESSION['link'] = $_GET['link'];
-				header('Location: show_doctor.php?link='.$_SESSION['link']);
+				header('Location: show_staff.php?link='.$_SESSION['link']);
 			}
 	?>
 

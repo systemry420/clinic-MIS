@@ -22,7 +22,7 @@
 			require('functions.php');
             $conn = getConnection();
             $sql = "SELECT `id`, `name`
-                    FROM `staff`
+                    FROM `posts`
                     ORDER BY name ASC;";
 
             $result = mysqli_query($conn, $sql);
