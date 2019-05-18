@@ -1,8 +1,8 @@
 <?php
 	session_start();
 	require('functions.php');
-	$email = $_POST['user'];
-	$password = $_POST['password'];
+	$email = $_POST['email'];
+	$password = $_POST['pass'];
 
 	$connect = getConnection();
 
@@ -12,11 +12,12 @@
 	if(mysqli_num_rows($query)){
         echo "<script> alert('Welcome!!')</script>";
         $row = mysqli_fetch_array($query);
-        $_SESSION['username'] = $row['username'];
-        if($_SESSION['logging'] == 1 )
+        // $_SESSION['username'] = $row['name'];
+        // if($_SESSION['logging'] == 1 )
+        
             header('Location: home.php');
-        if($_SESSION['logging'] == 0)
-            header('Location: show_film.php?'.$_SESSION['link']);
+        // if($_SESSION['logging'] == 0)
+        //     header('Location: show_film.php?'.$_SESSION['link']);
     }
     else{
         echo '<script>alert("You have to sign up first!!"); </script>';

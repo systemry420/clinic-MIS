@@ -105,21 +105,16 @@ h1, h2 {
 
 
 .main div.tile {
-	width: 25%;
-	margin: 15px;
-	background-color:#eee;
-	box-shadow: 0 0 3px 3px #555;
-	border-radius: 5px;
-	padding: 20px;
+    width: 25%;
+    margin:5%;
+    box-shadow: 0 0 15px #aaa;
+    background: #efefef;
+    padding: 1%;
+    border-radius: 1%;
 	color: #222;
 	display: flex;
 	justify-content: center;
     align-items: center;
-}
-
-.main div.tile:hover {
-    transition: 1s;
-    transform: scale(1.1);
 }
 
 form input{

@@ -20,6 +20,31 @@
 		</ul>
 	</div>
 
+	<div class="main" style="display: flex; flex-wrap: wrap; justify-content: center;">
+		<?php
+			require('functions.php');
+			$conn = getConnection();
+			$result = get_spec();
+
+			if(mysqli_num_rows($result) > 0){
+				while ($row = mysqli_fetch_array($result)) {
+		?>
+					<div class="tile">
+						<div class="item">
+							<form action="" method="get">
+								<a href="<?php echo '?link='.$row["id"]; ?>">
+									<img src="<?php echo 'img/'.$row['img']; ?>" style="width: 90%; max-height: 200px;" /><br>
+									<h3 class="text-info"><?php echo $row["name"]; ?></h3>
+								</a>
+							</form>
+						</div>
+					</div>
+		<?php
+				}
+			}
+		?>
+	</div>
+
 
 
 </body>

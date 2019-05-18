@@ -1,8 +1,6 @@
 <?php
 	session_start();
-	if(!isset($_SESSION['logging'] )){
-		$_SESSION['logging'] = 1;
-	}
+
 ?>
 
 <!DOCTYPE html>
