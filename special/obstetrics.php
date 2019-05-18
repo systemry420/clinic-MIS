@@ -16,7 +16,12 @@
 	</div>
 
 	<h1>Obstetrics Doctors</h1>
-
+	<?php
+		if(isset($_GET['link'])){
+            $_SESSION['link'] = $_GET['link'];
+            header('Location: ../show_doctor.php?link='.$_SESSION['link']);
+        }
+	?>
 	<div class="main" style="display: flex; flex-wrap: wrap; justify-content: center;">
 		<?php
 			require('../functions.php');
