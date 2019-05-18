@@ -1,62 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>neurology</title>
+	<title>Nerves</title>
+	<link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
+<div class ="navbar nav">
+		<ul>
+			<li><a href ="../home.php">Home</a></li> 
+			<li><a href ="../doctors.php">Doctors</a></li> 
+			<li><a href ="../staff.php">Staff</a></li> 
+			<li><a href ="../blog.php">Blog</a></li> 
+			<li><a href ="../logout.php">Logout</a></li> 
+		</ul>
+	</div>
 
-	<link rel="stylesheet" type="text/css" href="body4.css">
-	<table border="1" width="900" height="700" align="center" >
-		<tr align="center">
-			<td bgcolor="blue"><i><b><u><font size="10">name of doctor</font></u></b></i></td>
-			<td bgcolor="blue"><i><b><u><font size="10">phone number</font></u></b></i></td>
-			<td bgcolor="blue"><i><b><u><font size="10">email</font></u></b></i></td>
-			<td bgcolor="blue"><i><b><u><font size="10">location of clinic</font></u></b></i></td>
-			<td bgcolor="blue"><i><b><u><font size="10">doctor's time</font></u></b></i></td>
-		</tr>
-		<tr align="center">
-		<td><b><font size="10">Mahdi Affi</font></b></td>
-		<td><font size="10">+9613718275</font></td>
-		<td><font size="10">mahdiA@hotmail.com</font></td>
-		<td><font size="10">baalbeck ain borday</font></td>
-		<td><font size="10">8:00am-2:00pm</font></td>
-	</tr>
-		<tr align="center">
-		<td><b><font size="10">Mahfouz Kassem</font></b></td>
-		<td><font size="10">+9613689747</font></td>
-		<td><font size="10">kassemMahfouz@gmail.com</font></td>
-		<td><font size="10">baalbeck</font></td>
-		<td><font size="10">8:00am-10:00am</font></td>
-	</tr>
-	<tr align="center">
-		<td><b><font size="10">Mohamad Ali Housseiny</font></b></td>
-		<td><font size="10">+961351786</font></td>
-		<td><font size="10">mhdali@hotmail.com</font></td>
-		<td><font size="10">baalbeck</font></td>
-		<td><font size="10">on the appointment</font></td>
-	</tr>
-	<tr align="center">
-		<td><b><font size="10">Ahmad Awdi</font></b></td>
-		<td><font size="10">+96176881588</font></td>
-		<td><font size="10">A.awdi@hotmail.com</font></td>
-		<td><font size="10">baalbeck</font></td>
-		<td><font size="10">on the appointment</font></td>
-	</tr>
-	<tr align="center">
-		<td><b><font size="10">Chaker Khamis</font></b></td>
-		<td><font size="10">+9613209023</font></td>
-		<td><font size="10">Khamiss.Chaker@gmail.com</font></td>
-		<td><font size="10">baalbeck</font></td>
-		<td><font size="10">8:00-2:00</font></td>
-	</tr>
-	<tr align="center">
-		<td><b><font size="10">Ossama Chamas</font></b></td>
-		<td><font size="10">+9613894425</font></td>
-		<td><font size="10">ossamachamas@hotmail.com</font></td>
-		<td><font size="10">baalbeck</font></td>
-		<td><font size="10">10:30-5:00</font></td>
-	</tr>
-</table>
+	<h1>Nerves Doctors</h1>
 
+	<div class="main" style="display: flex; flex-wrap: wrap; justify-content: center;">
+		<?php
+			require('../functions.php');
+			$conn = getConnection();
+			$sql = 'SELECT doctor.id, doctor.name
+					FROM doctor, spec
+					WHERE doctor.spec_id= spec.id
+					AND spec.name="nerves"
+					';
+
+			$result = mysqli_query($conn, $sql);
+
+			if(mysqli_num_rows($result) > 0){
+				while ($row = mysqli_fetch_array($result)) {
+		?>
+					<div class="tile tile-doctor">
+						<div class="item">
+							<form action="" method="get">
+								<a href="<?php echo '?link='.$row["id"]; ?>">
+									<img src="../img/doc.jpg" style="width: 90%; max-height: 200px;" /><br>
+									<h3 class="text-info"><?php echo $row["name"]; ?></h3>
+								</a>
+							</form>
+						</div>
+					</div>
+		<?php
+				}
+			}
+		?>
+	</div>
 </body>
 </html>
