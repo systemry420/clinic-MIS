@@ -27,6 +27,14 @@ function get_spec(){
 
 
 
+function get_doctor_details($id){
+	$conn = getConnection();
+	$sql = "SELECT * FROM doctor where id='$id'";
+
+    $result=mysqli_query($conn, $sql);
+
+	return $result;
+}
 
 
 

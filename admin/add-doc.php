@@ -97,15 +97,23 @@ if ( isset( $_POST['saveChanges'] ) ) {
 
 <!-- tele -->
           <div class="form-group row">
-            <label for="duration" class="col-sm-2 col-form-label">Telephone</label>
+            <label for="tele" class="col-sm-2 col-form-label">Telephone</label>
             <div class="col-sm-10">
                <input class="form-control" type="text" name="tele"  required/>
             </div>
           </div>
 
+<!-- email -->
+          <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+               <input class="form-control" type="email" name="email"  required/>
+            </div>
+          </div>
+
 <!-- address -->
           <div class="form-group row">
-            <label for="year" class="col-sm-2 col-form-label">Location</label>
+            <label for="address" class="col-sm-2 col-form-label">Location</label>
             <div class="col-sm-10">
                <input class="form-control" type="text" name="address"  required/>
             </div>
@@ -113,7 +121,7 @@ if ( isset( $_POST['saveChanges'] ) ) {
 
 <!-- from -->
           <div class="form-group row">
-            <label for="rate" class="col-sm-2 col-form-label">From</label>
+            <label for="from" class="col-sm-2 col-form-label">From</label>
             <div class="col-sm-10">
                <input class="form-control" type="number" min="0" max="23" name="from"  required/>
             </div>
@@ -121,7 +129,7 @@ if ( isset( $_POST['saveChanges'] ) ) {
 
 <!-- to -->
           <div class="form-group row">
-            <label for="video" class="col-sm-2 col-form-label">To</label>
+            <label for="to" class="col-sm-2 col-form-label">To</label>
             <div class="col-sm-10">
                <input class="form-control" type="number" min="0" max="23" name="to"  required/>
             </div>
@@ -129,13 +137,20 @@ if ( isset( $_POST['saveChanges'] ) ) {
 
 <!-- spec -->
           <div class="form-group row">
-            <label for="type" class="col-sm-2 col-form-label">Specialization</label>
-            <div class="col-sm-10">
+            <label for="spec" class="col-sm-4 col-form-label">Specialization</label>
+            <div class="col-sm-8">
               <select name="spec" id="type" class="form-control">
-                <option value="2">obstetrics</option>
-                <option value="3">orthopedic</option>
-                <option value="4">neurolgy</option>
-                <option value="5">gastroenterology</option>
+                <?php
+                  $conn = getConnection();
+                  $result = get_spec();
+                  if(mysqli_num_rows($result) > 0){
+                    while ($row = mysqli_fetch_array($result)) {
+                ?>
+                <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
+                <?php
+                    }
+                  }
+                ?>
               </select>
             </div>
           </div>
