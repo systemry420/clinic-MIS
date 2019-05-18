@@ -3,23 +3,22 @@
 <head>
 	<meta charset="utf-8">
 	<title>home</title>
-	<link rel="stylesheet" type="text/css" href="body.css">
-	<img src="650x350_pediatrician_or_family_practitioner_ref_guide.jpg" width="1600" height="800">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body style="background:url('650x350_pediatrician_or_family_practitioner_ref_guide.jpg');
+			backround-repeat: no-repeat;
+			background-size: cover;
+			height: 100%;
+">
 
-	<div class="login">
-		<h1>login</h1>
-		<div class="textbox">
-			<input type="text" placeholder="Username" name="" value="">
-		</div>
-		<div class="textbox">
-			<input type="password" placeholder="password" name="" value="">
-		</div>
-		<input type="submit" name="" value="Login">
-		<input type="reset" name="" value="Clear">
-
-		<p> If not registred ,<a href="MYDOCTORTIME.php">sign up</a>
+<div class ="navbar nav">
+		<ul>
+			<li><a href ="index.php">LOGO</a></li> 
+			<li><a href ="doctors.php">Doctors</a></li> 
+			<li><a href ="staff.php">Staff</a></li> 
+			<li><a href ="blog.php">Blog</a></li> 
+		</ul>
+	</div>
 
 
 

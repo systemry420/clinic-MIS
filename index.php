@@ -5,7 +5,7 @@
 
 ?>
 <head>
-	<title>les bestes films</title>
+	<title>SIHATI</title>
 	<link rel="stylesheet" href="style.css">
 	<style>
 		h1, h2 {

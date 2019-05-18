@@ -23,8 +23,8 @@
     <div id="page-content-wrapper">
 
       <div class="container-fluid">
-        <h1 class="mt-4">Signup here</h1>
-        <div class="col-10">
+        <div class="col-10 form">
+          <h1 class="mt-4">Signup here</h1>
           <form action="?" method="post" enctype="multipart/form-data">
 
           <div class="form-group row">
@@ -36,18 +36,22 @@
 
 <!-- gender -->
 <div class="form-group row">
-            <div class="col-sm-4">
-                <label for="type" class="col-form-label">Gender</label>
-            </div>
-            <div class="col-sm-4">
-                <label for="type" class="col-form-label">Male</label>
-                <input type="radio" name="gender" value="male" id="male">
-            </div>
-            <div class="col-sm-4">
-                <label for="type" class="col-form-label">Female</label>
-                <input type="radio" name="gender" value="female" id="female">
-            </div>
-          </div>
+  <div class="col-sm-4">
+      <label for="type" class="col-form-label">Gender</label>
+  </div>
+  <div class="col-sm-2">
+    <label for="type" class="">Male</label>
+  </div>
+  <div class="col-sm-2">
+      <input type="radio" name="gender" value="male" id="male">
+  </div>
+  <div class="col-sm-2">
+    <label for="type" class="">Female</label>
+  </div>
+  <div class="col-sm-2">
+      <input type="radio" name="gender" value="female" id="female">
+  </div>
+</div>
 
 <!-- tele -->
           <div class="form-group row">

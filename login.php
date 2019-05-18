@@ -8,7 +8,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" type="text/css" href="admin/resources/bootstrap/css/bootstrap.min.css" />
+
     <title>LOGIN</title>
 </head>
 <body>
@@ -19,18 +21,33 @@
 		</ul>
 	</div>
 
-<div class="form">
-		<img src="img/user.jpg" class="user">
-		<h3>Login here</h3>
-		<form method="post" action="log.php">
-			Email
-			<input type="text" name="user" placeholder="Enter email">
-			Password
-			<input type="text" name="password" placeholder ="enter password">
-			<input type="submit" name="btnsave" value="LOG IN">
-			<a href="signup.php">create account</a>
+<div class="container-fluid">
+<div class="col-10 form">
+	<h2>Login here</h2>
+	<form action="log.php" method="post" enctype="multipart/form-data">
 
-		</form>
-	</div>
+		<div class="form-group row">
+			<label for="email" class="col-sm-2 col-form-label">Email </label>
+			<div class="col-sm-10">
+				<input class="form-control" type="text" name="email" id="email" placeholder=""  autofocus required maxlength="255" value="<?php echo htmlspecialchars( (isset( $doctor['name'])? $doctor['name']:'') )?>" />
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label for="password" class="col-sm-2 col-form-label">Password </label>
+			<div class="col-sm-10">
+				<input class="form-control" type="password" name="pass" id="password" placeholder="" />
+			</div>
+		</div>
+
+		<input type="submit" name="btnsave" value="LOG IN">
+		<p  style="text-align:center;">
+			<a class="color: blue;" href="signup.php">create account</a>
+		</p>
+
+	</form>
+</div>
+</div>
+
 </body>
 </html>
