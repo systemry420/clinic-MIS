@@ -5,11 +5,7 @@
 	<title>home</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body style="background:url('650x350_pediatrician_or_family_practitioner_ref_guide.jpg');
-			backround-repeat: no-repeat;
-			background-size: cover;
-			height: 100%;
-">
+<body>
 
 <div class ="navbar nav">
 		<ul>

@@ -1,5 +1,5 @@
 body{
-    background:url('img/background.jpg');
+    background:url('img/bg.jpg');
     background-size:cover;
     background-repeat: no-repeat;
     font-family: arial, sans-serif;
@@ -12,8 +12,9 @@ body{
 .navbar{
     text-align:center;
     width:100%;
-    background:rgb(50, 50, 138);
+    background:rgb(50, 50, 155);
     opacity:0.9;
+    box-shadow: 0px 2px 1px 1px #999;
 }
 
 .navbar .logout {
@@ -21,9 +22,13 @@ body{
     float: right;
 }
 
-h1, h2 {
-    background: #bbb;
+h1, h2, h3,
+.h1, .h2, .h3 {
+    background: rgb(0, 0, 80, 0.8);
     padding: 2%;
+    color: #eee;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .navbar ul{
@@ -31,7 +36,6 @@ h1, h2 {
     padding:0;
     list-style:none;
     position:relative;
-    box-shadow: 0px 2px 1px 1px #555;
 }
 
 .navbar ul li a{
@@ -96,18 +100,23 @@ h1, h2 {
 }
 
 .form{
-    margin:5%;
-    box-shadow: 0 0 15px #aaa;
-    background: #efefef;
+    margin:5% auto;
+    box-shadow: 0 0 25px #777;
+    background: rgba(200, 200, 200, 0.9);
     padding: 1%;
     border-radius: 1%;
+    width: 50%;
 }
 
+input[type="radio"]{
+    height: 20px;
+    background: #fff;
+}
 
 .main div.tile {
     width: 25%;
     margin:2%;
-    box-shadow: 0 0 15px #aaa;
+    box-shadow: 0 0 35px #111;
     background: #fff;
     padding: 1%;
     border-radius: 2%;
@@ -115,6 +124,10 @@ h1, h2 {
 	display: flex;
 	justify-content: center;
     align-items: center;
+}
+
+.main div.tile a {
+    text-decoration: none;
 }
 
 form input{
@@ -151,8 +164,8 @@ form input{
     color:#fff;
 }
 
-.form a{
-    font-size:14px;
+.form a, .form label{
+    font-size:1em;
     font-weight:bold;
 }
 

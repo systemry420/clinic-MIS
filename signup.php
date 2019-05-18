@@ -23,7 +23,7 @@
     <div id="page-content-wrapper">
 
       <div class="container-fluid">
-        <div class="col-10 form">
+        <div class="col-8 form">
           <h1 class="mt-4">Signup here</h1>
           <form action="?" method="post" enctype="multipart/form-data">
 

@@ -20,7 +20,7 @@
 	</div>
 
 <div class="container-fluid">
-<div class="col-10 form">
+<div class="col-8 form">
 	<h2>Login here</h2>
 	<form action="log.php" method="post" enctype="multipart/form-data">
 
@@ -40,7 +40,7 @@
 
 		<input type="submit" name="btnsave" value="LOG IN">
 		<p  style="text-align:center;">
-			<a class="color: blue;" href="signup.php">create account</a>
+			<a style="color:#111" class="btn btn-success" href="signup.php">create account</a>
 		</p>
 
 	</form>

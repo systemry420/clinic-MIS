@@ -37,8 +37,8 @@
 						<div class="item">
 							<form action="" method="get">
 								<a href="<?php echo '?link='.$row["id"]; ?>">
-									<img src="<?php echo 'img/'.$row['poster']; ?>" style="width: 90%; max-height: 200px;" /><br>
-									<h3 class="text-info"><?php echo $row["name"]; ?></h3>
+									<img src="img/doc.jpg" style="width: 90%; max-height: 200px;" /><br>
+									<h4 class="text-info"><?php echo $row["name"]; ?></h4>
 								</a>
 							</form>
 						</div>
