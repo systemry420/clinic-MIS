@@ -28,7 +28,7 @@
 		<?php
 			require('functions.php');
 			$conn = getConnection();
-			$result = get_films();
+			$result = get_doctors();
 
 			if(mysqli_num_rows($result) > 0){
 				while ($row = mysqli_fetch_array($result)) {

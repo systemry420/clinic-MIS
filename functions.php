@@ -2,13 +2,13 @@
 
 function getConnection(){
     $connect=mysqli_connect('localhost','root','');
-    $selected=mysqli_select_db($connect,'project');
+    $selected=mysqli_select_db($connect,'hospital');
     return $connect;
 }
 
-function get_films(){
+function get_doctors(){
 	$conn = getConnection();
-	$sql = "SELECT * FROM film";
+	$sql = "SELECT * FROM doctor";
 
     $result=mysqli_query($conn, $sql);
 

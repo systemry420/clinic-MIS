@@ -76,13 +76,13 @@ $doctors = get_doctors();
 <tr>
 <th scope="col" style="width: 100px;">Id</th>
 <th scope="col">Name</th>
-<th scope="col">Type</th>
-<th scope="col">Duration</th>
-<th scope="col">Year</th>
-<th scope="col">Poster</th>
-<th scope="col">rate</th>
-<th scope="col">video</th>
-<th scope="col">views</th>
+<th scope="col">Gender</th>
+<th scope="col">tele</th>
+<th scope="col">Address</th>
+<th scope="col">From</th>
+<th scope="col">TO</th>
+<th scope="col">Specialization</th>
+<th scope="col">Status</th>
 </tr>
 </thead>
 <tbody>
@@ -95,13 +95,13 @@ $doctors = get_doctors();
   <tr >
     <td><?php echo $doctor['id']?></td>
     <td><?php echo $doctor['name']; ?></td>
-    <td><?php echo $doctor['type']?></td>
-    <td><?php echo $doctor['duration']?></td>
-    <td><?php echo $doctor['year']?></td>
-    <td><?php echo $doctor['poster']?></td>
-    <td><?php echo $doctor['rate']?></td>
-    <td><?php echo $doctor['video']?></td>
-    <td><?php echo $doctor['views']?></td>
+    <td><?php echo $doctor['gender']?></td>
+    <td><?php echo $doctor['tele']?></td>
+    <td><?php echo $doctor['address']?></td>
+    <td><?php echo $doctor['from_time']?></td>
+    <td><?php echo $doctor['to_time']?></td>
+    <td><?php echo $doctor['spec_id']?></td>
+    <td><?php echo $doctor['status']?></td>
     <td>
       <a class="" href="<?php echo 'doctors.php?mode=delete&id='. $doctor['id'] ?>" onclick="return confirm('Delete This doctor?')">Delete
     </a>
