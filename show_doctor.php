@@ -154,7 +154,10 @@
                         <th>Specialization</th>
                         <td>
                             <?php 
-                                echo $row['to_time']; 
+                                $sql = 'SELECT * FROM spec where id='.$row['spec_id']; 
+                                $res = mysqli_query($conn, $sql);
+                                $r = mysqli_fetch_array($res);
+                                echo $r['name'];
                             ?>
                         </td>
                     </tr>
