@@ -48,4 +48,13 @@ function get_staff_details($id){
 }
 
 
+function get_blog($id){
+	$conn = getConnection();
+	$sql = "SELECT * FROM posts where id='$id'";
+
+    $result=mysqli_query($conn, $sql);
+
+	return $result;
+}
+
 ?>

@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,13 +19,21 @@
 		</ul>
 	</div>
 
+	<?php
+		if(isset($_GET['blog'])){
+            $_SESSION['blog'] = $_GET['blog'];
+            header('Location: show_blog.php?blog='.$_SESSION['blog']);
+        }
+    ?>
+    
 	<div class="main" style="display: flex; flex-wrap: wrap; justify-content: center;">
 		<?php
 			require('functions.php');
             $conn = getConnection();
-            $sql = "SELECT `id`, `name`
+            $sql = "SELECT *
                     FROM `posts`
-                    ORDER BY name ASC;";
+                    ORDER BY id Desc
+					LIMIT 3;";
 
             $result = mysqli_query($conn, $sql);
 
@@ -32,9 +43,9 @@
 					<div class="tile">
 						<div class="item">
 							<form action="" method="get">
-								<a href="<?php echo '?link='.$row['id']; ?>">
-									<img src="img/doc.jpg" style="width: 90%; max-height: 40%;" /><br>
-									<h3 class="text-info"><?php echo $row["name"]; ?></h3>
+								<a href="<?php echo '?blog='.$row['id']; ?>">
+									<img src="<?php echo 'img/'.$row["img"]; ?>" style="width: 90%; max-height: 40%;" /><br>
+									<h3 class="text-info"><?php echo $row["title"]; ?></h3>
 								</a>
 							</form>
 						</div>
@@ -45,7 +56,13 @@
 
 		?>
 	</div>
-
+	<?php
+		if(isset($_GET['blog'])){
+			$_SESSION['blog'] = $_GET['blog'];
+			$_SESSION['logged'] = 2;
+			header('Location: log.php');
+		}
+	?>
 
 </body>
 </html>

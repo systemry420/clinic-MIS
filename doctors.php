@@ -1,3 +1,7 @@
+<?php
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,9 +63,9 @@
 	<?php
 		if(isset($_GET['link'])){
 			$_SESSION['link'] = $_GET['link'];
-			$_SESSION['log'] = 1;
-				header('Location: log.php');
-			}
+			$_SESSION['logged'] = 1;
+			header('Location: log.php');
+		}
 	?>
 
 </body>
