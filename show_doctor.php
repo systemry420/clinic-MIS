@@ -4,8 +4,7 @@
     $conn = getConnection();
     // echo $_SESSION['link'];
 
-    if(($_SESSION['log']) == 1){
-
+    if(isset($_SESSION['user'])){
         if(isset($_SESSION['link'])){
             $id = $_SESSION['link'];
             $res = get_doctor_details($id);

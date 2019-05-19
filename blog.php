@@ -19,12 +19,6 @@
 		</ul>
 	</div>
 
-	<?php
-		if(isset($_GET['blog'])){
-            $_SESSION['blog'] = $_GET['blog'];
-            header('Location: show_blog.php?blog='.$_SESSION['blog']);
-        }
-    ?>
     
 	<div class="main" style="display: flex; flex-wrap: wrap; justify-content: center;">
 		<?php
@@ -56,11 +50,20 @@
 
 		?>
 	</div>
+
+
+	<?php
+		if(isset($_GET['blog'])){
+            $_SESSION['blog'] = $_GET['blog'];
+            header('Location: show_blog.php?blog='.$_SESSION['blog']);
+        }
+    ?>
+
 	<?php
 		if(isset($_GET['blog'])){
 			$_SESSION['blog'] = $_GET['blog'];
 			$_SESSION['logged'] = 2;
-			header('Location: log.php');
+			// header('Location: log.php');
 		}
 	?>
 

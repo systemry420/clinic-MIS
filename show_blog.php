@@ -4,17 +4,15 @@
     $conn = getConnection();
     // echo $_SESSION['link'];
 
-
-    if(isset($_SESSION['blog'])){
-        $id = $_SESSION['blog'];
-        $res = get_blog($id);
-        $row = mysqli_fetch_array($res);
+    if(isset($_SESSION['user'])){
+        if(isset($_SESSION['blog'])){
+            $id = $_SESSION['blog'];
+            $res = get_blog($id);
+            $row = mysqli_fetch_array($res);
+        }
     }
-
-    if(isset($_GET['blog'])){
-        $id = $_GET['blog'];
-        $res = get_blog($id);
-        $row = mysqli_num_rows($res)>0? mysqli_fetch_array($res): [] ;
+    else{
+        header('Location: login.php');
     }
 
 ?>

@@ -12,19 +12,18 @@
 	if(mysqli_num_rows($query)){
         // echo "<script> alert('Welcome!!')</script>";
         $row = mysqli_fetch_array($query);
-        // $_SESSION['user'] = $row['email'];
-        echo  $_SESSION['log'];
         
-
         
+        echo  $_SESSION['logged'];
 
-
-        if($_SESSION['log'] == 1)
+        if($_SESSION['logged'] == 1)
             header('Location: show_doctor.php?'.$_SESSION['link']);
-        if(isset($_SESSION['blog']))
+        if($_SESSION['logged'] == 2)
             header('Location: show_blog.php?'.$_SESSION['blog']);
         else
             header('Location: home.php');
+        
+        $_SESSION['user'] = $row['email'];
         
     }
     else{
