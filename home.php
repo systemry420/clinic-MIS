@@ -13,10 +13,11 @@
 			<li><a href ="doctors.php">Doctors</a></li> 
 			<li><a href ="staff.php">Staff</a></li> 
 			<li><a href ="blog.php">Blog</a></li> 
-			<li><a href ="logout.php">Logout</a></li> 
 		</ul>
 	</div>
-<h1>You can view doctors by specialization</h1>
+
+	<h1>You can view doctors by specialization</h1>
+
 	<div class="main" style="display: flex; flex-wrap: wrap; justify-content: center;">
 		<?php
 			require('functions.php');
@@ -42,6 +43,7 @@
 
 		?>
 	</div>
+
 
 
 

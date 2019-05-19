@@ -9,11 +9,10 @@
 
 <div class ="navbar nav">
 		<ul>
-			<li><a href ="home.php">Home</a></li> 
+			<li><a href ="index.php">Home</a></li> 
 			<li><a href ="doctors.php">Doctors</a></li> 
 			<li><a href ="staff.php">Staff</a></li> 
 			<li><a href ="blog.php">Blog</a></li> 
-			<li><a href ="logout.php">Logout</a></li> 
 		</ul>
 	</div>
 
@@ -25,7 +24,9 @@
     ?>
     
     
+	<h1>You can view doctors after login</h1>
 	<div class="main" style="display: flex; flex-wrap: wrap; justify-content: center;">
+
 		<?php
 			require('functions.php');
             $conn = getConnection();
@@ -55,7 +56,13 @@
 		?>
 	</div>
 
-
+	<?php
+		if(isset($_GET['link'])){
+			$_SESSION['link'] = $_GET['link'];
+			$_SESSION['log'] = 1;
+				header('Location: log.php');
+			}
+	?>
 
 </body>
 </html>

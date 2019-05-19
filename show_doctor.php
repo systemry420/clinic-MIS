@@ -2,7 +2,9 @@
     session_start();
     require('functions.php');
     $conn = getConnection();
-    // echo "show doc";
+    // echo $_SESSION['link'];
+
+    if(($_SESSION['log']) == 1){
 
         if(isset($_SESSION['link'])){
             $id = $_SESSION['link'];
@@ -13,11 +15,12 @@
         if(isset($_GET['link'])){
             $id = $_GET['link'];
             $res = get_doctor_details($id);
-            $row = mysqli_fetch_array($res);
+            $row = mysqli_num_rows($res)>0? mysqli_fetch_array($res): [] ;
         }
-        
-        $sql = 'UPDATE `doctor` SET `views`= `views`+1  WHERE `id`='.$id;
-        mysqli_query($conn, $sql);
+    }
+    else{
+        header('Location: login.php');
+    }
 
 ?>
 <!DOCTYPE html>
@@ -168,7 +171,7 @@
             </div>
         </div>
         
-        <h3>Related doctors</h3>
+        <h3>Similar doctors</h3>
         <div class="related">
             <?php
                 $sql = "SELECT * FROM `doctor` WHERE `spec_id` ='".$row['spec_id'] ."'";

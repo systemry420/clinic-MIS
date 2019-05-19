@@ -12,12 +12,14 @@
 	if(mysqli_num_rows($query)){
         echo "<script> alert('Welcome!!')</script>";
         $row = mysqli_fetch_array($query);
-        // $_SESSION['username'] = $row['name'];
-        // if($_SESSION['logging'] == 1 )
+        $_SESSION['user'] = $row['name'];
         
+        if($_SESSION['log'] == 1)
+            header('Location: show_doctor.php?'.$_SESSION['link']);
+        else
             header('Location: home.php');
-        // if($_SESSION['logging'] == 0)
-        //     header('Location: show_film.php?'.$_SESSION['link']);
+        
+        $_SESSION['log'] = 1;
     }
     else{
         echo '<script>alert("You have to sign up first!!"); </script>';

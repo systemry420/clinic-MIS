@@ -113,6 +113,11 @@ input[type="radio"]{
     background: #fff;
 }
 
+.main {
+    background: rgba(20, 50, 100, 0.7);
+    height: 100%;
+    width: 100%;
+}
 .main div.tile {
     width: 25%;
     margin:2%;

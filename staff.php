@@ -9,11 +9,10 @@
 
 <div class ="navbar nav">
 		<ul>
-			<li><a href ="home.php">Home</a></li> 
+			<li><a href ="index.php">Home</a></li> 
 			<li><a href ="doctors.php">Doctors</a></li> 
 			<li><a href ="staff.php">Staff</a></li> 
 			<li><a href ="blog.php">Blog</a></li> 
-			<li><a href ="logout.php">Logout</a></li> 
 		</ul>
 	</div>
 
