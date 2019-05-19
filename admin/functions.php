@@ -25,6 +25,15 @@ function get_spec(){
 	return $result;
 }
 
+function get_staff(){
+	$conn = getConnection();
+	$sql = "SELECT * FROM staff";
+
+    $result=mysqli_query($conn, $sql);
+
+	return $result;
+}
+
 
 function add_doctor($data){
     // print_r($data);
@@ -45,6 +54,22 @@ function add_doctor($data){
     return $result;
 }
 
+function add_staff($data){
+    // print_r($data);
+    $name = $data['name'];
+    $gender = $data['gender'];
+    $tele = $data['tele'];
+    $email = $data['email'];
+    $address = $data['address'];
+    $day = $data['day'];
+
+    $conn = getConnection();
+    $sql = 'INSERT INTO `staff`(`id`, `name`, `tele`, `address`, `day`, `gender`) VALUES '
+        .'(Null, "'.$name.'", "'.$tele.'", "'.$address.'", "'.$day.'", "'.$gender.'")';
+
+    $result=mysqli_query($conn, $sql);
+    return $result;
+}
 
 function delete_doctor($id){
 	$conn = getConnection();
@@ -54,9 +79,9 @@ function delete_doctor($id){
     return $result;
 }
 
-function delete_message($id){
+function delete_staff($id){
 	$conn = getConnection();
-    $sql = "DELETE FROM contact WHERE id ='$id' LIMIT 1";
+    $sql = "DELETE FROM staff WHERE id ='$id' LIMIT 1";
     $result=mysqli_query($conn, $sql);
 
     return $result;

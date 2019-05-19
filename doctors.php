@@ -18,7 +18,7 @@
 			<li><a href ="staff.php">Staff</a></li> 
 			<li><a href ="blog.php">Blog</a></li> 
 			<li><a href ="login.php">LOGIN</a></li> 
-		</ul>
+		</ul> 
 	</div>
 
 	<?php

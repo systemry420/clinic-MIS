@@ -54,5 +54,15 @@
 			}
 		?>
 	</div>
+
+
+	<?php
+		if(isset($_GET['link'])){
+			$_SESSION['link'] = $_GET['link'];
+			$_SESSION['logged'] = 1;
+			header('Location: ../log.php');
+		}
+	?>
+
 </body>
 </html>

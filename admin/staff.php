@@ -4,13 +4,13 @@ require('functions.php');
 
 if(isset($_GET['mode']) && $_GET['mode']=='delete'){
   
-    delete_message($_GET['id']);
-    header( "Location:messages.php" );
+    delete_staff($_GET['id']);
+    header( "Location:staff.php" );
     exit;
   }
   
 
-$messages = get_messages();
+$staff = get_staff();
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ $messages = get_messages();
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Messages </title>
+<title>Staff </title>
 
 
 <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.min.css" />
@@ -41,8 +41,8 @@ $messages = get_messages();
 <div class="sidebar-heading">Admin Panel </div>
 <div class="list-group list-group-flush">
 <a href="dashboard.php" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-<a href="films.php" class="list-group-item list-group-item-action bg-light">Films</a>
-<a href="messages.php" class="list-group-item list-group-item-action bg-light">Messages</a>
+<a href="doctors.php" class="list-group-item list-group-item-action bg-light">Doctors</a>
+<a href="staff.php" class="list-group-item list-group-item-action bg-light">Staff</a>
 </div>
 </div>
 <!-- /#sidebar-wrapper -->
@@ -51,10 +51,14 @@ $messages = get_messages();
 <div id="page-content-wrapper">
 
 <div class="container-fluid">
-<h1 class="mt-4">Messages</h1>
+<h1 class="mt-4">Staff</h1>
 
 
 <div class="row mb-3">
+<div class="col-4">
+<a class="btn btn-success" href="add-staff.php?mode=add">Add a New Staff</a>
+</div>
+
 <div class="col-4">
 <a class="btn btn-danger" href="dashboard.php">Back to dashboard</a>
 </div>
@@ -63,23 +67,29 @@ $messages = get_messages();
 <thead>
 <tr>
 <th scope="col" style="width: 100px;">Id</th>
-<th scope="col">Email</th>
-<th scope="col">Message</th>
+<th scope="col">Name</th>
+<th scope="col">Tele</th>
+<th scope="col">address</th>
+<th scope="col">day</th>
+<th scope="col">Gender</th>
 </tr>
 </thead>
 <tbody>
 <?php
-  if(mysqli_num_rows($messages) > 0){
-      while ($message= mysqli_fetch_array($messages)) {
+  if(mysqli_num_rows($staff) > 0){
+      while ($s= mysqli_fetch_array($staff)) {
 
   ?>
   
   <tr >
-    <td><?php echo $message['id']?></td>
-    <td><?php echo $message['email']; ?></td>
-    <td><?php echo $message['message']; ?></td>
+    <td><?php echo $s['id']?></td>
+    <td><?php echo $s['name']; ?></td>
+    <td><?php echo $s['tele']; ?></td>
+    <td><?php echo $s['address']; ?></td>
+    <td><?php echo $s['day']; ?></td>
+    <td><?php echo $s['gender']; ?></td>
     <td>
-      <a class="" href="<?php echo 'messages.php?mode=delete&id='. $message['id'] ?>" onclick="return confirm('Delete This Message?')">Delete
+      <a class="" href="<?php echo 'staff.php?mode=delete&id='. $s['id'] ?>" onclick="return confirm('Delete This Staff?')">Delete
     </a>
     </td>
   </tr>

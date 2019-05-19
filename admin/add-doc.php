@@ -58,7 +58,7 @@ if ( isset( $_POST['saveChanges'] ) ) {
       <div class="list-group list-group-flush">
         <a href="dashboard.php" class="list-group-item list-group-item-action bg-light">Dashboard</a>
         <a href="doctors.php" class="list-group-item list-group-item-action bg-light">doctors</a>
-        <a href="messages.php" class="list-group-item list-group-item-action bg-light">Messages</a>
+        <a href="staff.php" class="list-group-item list-group-item-action bg-light">staff</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->

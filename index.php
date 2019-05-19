@@ -12,7 +12,7 @@
 
 	<div class ="navbar">
 		<ul>
-			<li><a href ="index.php">Home</a></li>
+			<li><a href ="index.php">SEHATI</a></li>
 			<li><a href ="doctors.php">Doctors</a></li> 
 			<li><a href ="staff.php">Staff</a></li> 
 			<li><a href ="blog.php">Blog</a></li> 
@@ -20,7 +20,15 @@
 		</ul>
 	</div>
 
-	index.php
+	<h1>Welcome to our website</h1>
+	<div class="main" style="">
+
+	</div>
+
+	<h1>Welcome to our website</h1>
+	<div class="main" style="display: flex; flex-wrap: wrap; justify-content: center;">
+
+	</div>
 
 </body>
 </html>

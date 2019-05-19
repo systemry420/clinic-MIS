@@ -4,7 +4,7 @@
 session_start();
 
 require('functions.php');
-
+$con = getConnection();
 $username = isset( $_SESSION['username'] ) ? $_SESSION['username'] : "";
 
 if(!$username){
@@ -51,7 +51,7 @@ $doctors = get_doctors();
 <div class="list-group list-group-flush">
 <a href="dashboard.php" class="list-group-item list-group-item-action bg-light">Dashboard</a>
 <a href="doctors.php" class="list-group-item list-group-item-action bg-light">doctors</a>
-<a href="messages.php" class="list-group-item list-group-item-action bg-light">Messages</a>
+<a href="staff.php" class="list-group-item list-group-item-action bg-light">staff</a>
 </div>
 </div>
 <!-- /#sidebar-wrapper -->
@@ -71,12 +71,13 @@ $doctors = get_doctors();
 <a class="btn btn-danger" href="dashboard.php">Back to dashboard</a>
 </div>
 </div>
-<table class="table table-striped" id="">
+<table class="table table-striped " style="width:90%">
 <thead>
 <tr>
 <th scope="col" style="width: 100px;">Id</th>
 <th scope="col">Name</th>
 <th scope="col">Gender</th>
+<th scope="col">tele</th>
 <th scope="col">tele</th>
 <th scope="col">Address</th>
 <th scope="col">From</th>
@@ -97,10 +98,19 @@ $doctors = get_doctors();
     <td><?php echo $doctor['name']; ?></td>
     <td><?php echo $doctor['gender']?></td>
     <td><?php echo $doctor['tele']?></td>
+    <td><?php echo $doctor['email']?></td>
     <td><?php echo $doctor['address']?></td>
-    <td><?php echo $doctor['from_time']?></td>
-    <td><?php echo $doctor['to_time']?></td>
-    <td><?php echo $doctor['spec_id']?></td>
+    <td><?php echo substr($doctor['from_time'], 0, 5) ?></td>
+    <td><?php echo substr($doctor['to_time'], 0, 5) ?></td>
+    <td>
+      <?php 
+          $s = "select * from spec where id=".$doctor['spec_id'];
+          $q = mysqli_query($con, $s);
+          $r = mysqli_fetch_array($q);
+          echo $r['name'];
+          
+        ?>
+    </td>
     <td><?php echo $doctor['status']?></td>
     <td>
       <a class="" href="<?php echo 'doctors.php?mode=delete&id='. $doctor['id'] ?>" onclick="return confirm('Delete This doctor?')">Delete
