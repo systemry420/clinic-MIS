@@ -9,13 +9,15 @@
 
 <div class ="navbar nav">
 		<ul>
-			<li><a href ="index.php">Home</a></li> 
+			<li><a href ="index.php">SEHATI</a></li> 
 			<li><a href ="doctors.php">Doctors</a></li> 
 			<li><a href ="staff.php">Staff</a></li> 
 			<li><a href ="blog.php">Blog</a></li> 
+			<li><a href ="login.php">LOGIN</a></li> 
 		</ul>
 	</div>
 
+	<h1>Here are our staff</h1>
 	<div class="main" style="display: flex; flex-wrap: wrap; justify-content: center;">
 		<?php
 			require('functions.php');

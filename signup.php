@@ -28,14 +28,14 @@
     <div id="page-content-wrapper">
 
       <div class="container-fluid">
-        <div class="col-8 form">
+        <div class="col-6 form">
           <h1 class="mt-4">Signup here</h1>
           <form action="?" method="post" enctype="multipart/form-data">
 
           <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">Name </label>
-            <div class="col-sm-10">
-               <input class="form-control" type="text" name="name" id="name" placeholder=""  autofocus required maxlength="255" value="<?php echo htmlspecialchars( (isset( $doctor['name'])? $doctor['name']:'') )?>" />
+            <label for="name" class="col-sm-4 col-form-label">Name </label>
+            <div class="col-sm-8">
+               <input class="form-control" type="text" name="name" id="name" placeholder=""  autofocus required maxlength="455" value="<?php echo htmlspecialchars( (isset( $doctor['name'])? $doctor['name']:'') )?>" />
             </div>
           </div>
 
@@ -60,32 +60,32 @@
 
 <!-- tele -->
           <div class="form-group row">
-            <label for="duration" class="col-sm-2 col-form-label">Telephone</label>
-            <div class="col-sm-10">
+            <label for="duration" class="col-sm-4 col-form-label">Telephone</label>
+            <div class="col-sm-8">
                <input class="form-control" type="text" name="tele"  required/>
             </div>
           </div>
 
 <!-- address -->
           <div class="form-group row">
-            <label for="year" class="col-sm-2 col-form-label">Location</label>
-            <div class="col-sm-10">
+            <label for="year" class="col-sm-4 col-form-label">Location</label>
+            <div class="col-sm-8">
                <input class="form-control" type="text" name="address"  required/>
             </div>
           </div>
 
 <!-- emailx -->
           <div class="form-group row">
-            <label for="rate" class="col-sm-2 col-form-label">Email</label>
-            <div class="col-sm-10">
+            <label for="rate" class="col-sm-4 col-form-label">Email</label>
+            <div class="col-sm-8">
                <input class="form-control" type="email" name="email"  required/>
             </div>
           </div>
 
 <!-- pass -->
           <div class="form-group row">
-            <label for="video" class="col-sm-2 col-form-label">Password</label>
-            <div class="col-sm-10">
+            <label for="video" class="col-sm-4 col-form-label">Password</label>
+            <div class="col-sm-8">
                <input class="form-control" type="password" name="password"  required/>
             </div>
           </div>

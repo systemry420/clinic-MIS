@@ -38,8 +38,6 @@
             background-size: cover;
         }
         .doctor {
-            border: 3px solid rgb(150,150,255);
-            background: rgb(200, 200, 200, 0.9);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -97,7 +95,6 @@
 
 </head>
 <body>
-<div class ="navbar">
 <div class ="navbar nav">
 		<ul>
 			<li><a href ="home.php">Home</a></li> 
@@ -108,14 +105,13 @@
 		</ul>
 	</div>
 
+    <div class="name">
+        <h1>
+            Information about the doctor
+        </h1>
     </div>
-    
-    <div class="doctor" style="">
-        <div class="name">
-            <h1>
-                Information about the doctor
-            </h1>
-        </div>
+<div class="main">
+<div class="doctor" style="">
 
         <div class="row">
             <div class="table">
@@ -195,6 +191,8 @@
 
         </div>
 </div>
+
+</div>    
 
 </body>
 </html>
