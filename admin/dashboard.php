@@ -45,6 +45,7 @@ if(isset($_POST['logout'])){
         <!-- <a href="index.php" class="list-group-item list-group-item-action bg-light">Dashboard</a> -->
         <a href="doctors.php" class="list-group-item list-group-item-action bg-light">Doctors</a>
         <a href="staff.php" class="list-group-item list-group-item-action bg-light">Staff</a>
+        <a href="blog.php" class="list-group-item list-group-item-action bg-light">Blog</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
