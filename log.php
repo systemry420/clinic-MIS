@@ -6,7 +6,7 @@
 
 	$connect = getConnection();
 
-	$sql= "SELECT email, password FROM patient where email='$email' AND password='$password'";
+	$sql= "SELECT id, email, password FROM patient where email='$email' AND password='$password'";
 	$query= mysqli_query($connect, $sql);
 
 	if(mysqli_num_rows($query)){
@@ -24,6 +24,7 @@
             header('Location: home.php');
         
         $_SESSION['user'] = $row['email'];
+        $_SESSION['user_id'] = $row['id'];
         
     }
     else{

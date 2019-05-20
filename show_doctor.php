@@ -16,6 +16,8 @@
             $res = get_doctor_details($id);
             $row = mysqli_num_rows($res)>0? mysqli_fetch_array($res): [] ;
         }
+
+        $_SESSION['doc_id'] = $id;
     }
     else{
         header('Location: login.php');
@@ -163,11 +165,22 @@
                     <tr>
                         <!-- if status=0 => available -->
                         <!-- show appointment form -->
-                        <td colspan="2">
-                            <form action="appoint.php" method="get">
-                                <input type="hidden" name="doc_id" value="<?php echo $row['id']?>">
-                                <input class="btn btn-primary" type="submit" value="Make appointment">
-                            </form>
+                        <td colspan="2" style=" text-align:center;">
+                        <?php
+                            if($row['status']==0){
+                            ?>
+                                <form action="appoint.php" method="get">
+                                    <input type="hidden" name="doc_id" value="<?php echo $row['id']?>">
+                                    <input class="btn btn-primary" type="submit" value="Make appointment">
+                                </form>
+                                
+                            <?php
+                            }
+                            else{
+                                echo "<span style='color:red;'>doctor is unavailable</span>";
+                            }
+
+                            ?>
                         </td>
                     </tr>
                 </table>

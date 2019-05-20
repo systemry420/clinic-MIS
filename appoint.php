@@ -1,8 +1,32 @@
+<!-- todo:
+    - the doc can welcome 5 appoints a day
+    - give app id for patient to use when deal is closed
+-->
+<?php
+    session_start();
+    // echo $_SESSION['doc_id'] ;
+
+    require('functions.php');
+    $conn = getConnection();
+
+    $sql = "SELECT *
+            FROM `doctor`
+            WHERE id = '".$_SESSION['doc_id']."'";
+
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_array($result);
+    }
+
+    // var_dump($row) ;
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>home</title>
+	<title>Appointment</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -17,39 +41,34 @@
 		</ul>
 	</div>
 
-	<h1>Make an appointment to doctor: </h1>
-	<div class="main" style="display: flex; flex-wrap: wrap; justify-content: center;">
+	<h2>Make an appointment to doctor: <?php echo '<span style="color:orange">'.$row['name'].'</span>'; ?> </h2>
+	<div class="main" style="height:100%; flex-wrap: wrap; justify-content: center;">
+		<h3>The doctor is available on:</h3>
+            <div class="tile" style="margin:auto; width: 40%">
+                <div class="item">
+                    <form action="" method="get">
+                        <h4 class="text-info">Date: <?php $tomorrow=date("Y-m-d", time() + 86400); echo $tomorrow; ?></h4>
+                        <h4 class="text-info">From: <?php echo $row["from_time"]; ?></h4>
+                        <h4 class="text-info">To: <?php echo $row["to_time"]; ?></h4>
+                        <input name="confirm" type="submit" value="Confirm">
+                    </form>
+                </div>
+            </div>
 		<?php
-			require('functions.php');
-            $conn = getConnection();
-
-            // doctor x is available on time
-            $sql = "SELECT `id`, `from_time`, `to_time`
-                    FROM `doctor`
-                    WHERE id =";
-
-            $result = mysqli_query($conn, $sql);
-
-			if(mysqli_num_rows($result) > 0){
-				while ($row = mysqli_fetch_array($result)) {
-		?>
-					<div class="tile">
-						<div class="item">
-							<form action="" method="get">
-								<a href="<?php echo '?link='.$row['id']; ?>">
-									<!-- <img src="img/emp.png" style="width: 90%; max-height: 40%;" /><br> -->
-									<h3 class="text-info"><?php echo $row["from_time"]; ?></h3>
-                                </a>
-                                <input name="confirm" type="submit" value="Confirm">
-							</form>
-						</div>
-					</div>
-		<?php
-				}
-			}
 
             if(isset($_GET['confirm'])){
-                echo "<script>alert('Done'); </script>";
+                $s = "UPDATE doctor SET `status`=1 WHERE id = '".$_SESSION['doc_id'] ."'";
+                $q = mysqli_query($conn, $s);
+                echo $_SESSION['user_id'];
+                if($q){
+                    $sql = 'INSERT INTO `appoint`(`id`, `pat_id`, `doc_id`, `date`) Values '
+                    .'(Null, "'.$_SESSION['user_id'].'", "'.$_SESSION['doc_id'].'", "'.$tomorrow.'")';
+                    
+                    $result=mysqli_query($conn, $sql);
+                    if($result)
+                        echo "<script>alert('Done'); </script>";
+                    // header("Location: home.php");
+                }
             }
 		?>
 	</div>
