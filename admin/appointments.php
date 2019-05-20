@@ -12,14 +12,8 @@ if(!$username){
   exit;
 }
 
-if(isset($_GET['mode']) && $_GET['mode']=='delete'){
-  
-  delete_post($_GET['id']);
-  header( "Location:blog.php" );
-  exit;
-}
 
-$posts = get_posts();
+$apps = get_appointments();
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +26,7 @@ $posts = get_posts();
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>posts </title>
+<title>Appointments </title>
 
 
 <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.min.css" />
@@ -63,12 +57,11 @@ $posts = get_posts();
 <div id="page-content-wrapper">
 
 <div class="container-fluid">
-<h1 class="mt-4">posts</h1>
+<h1 class="mt-4">appointments</h1>
 
 
 <div class="row mb-3">
 <div class="col-4">
-<a class="btn btn-success" href="add-post.php?mode=add">Add a New post</a>
 </div>
 <div class="col-4">
 <a class="btn btn-danger" href="dashboard.php">Back to dashboard</a>
@@ -78,23 +71,54 @@ $posts = get_posts();
 <thead>
 <tr>
 <th scope="col" style="width: 100px;">Id</th>
-<th scope="col">Title</th>
-<th scope="col">Content</th>
+<th scope="col">patient</th>
+<th scope="col">Doctor</th>
+<th scope="col">Date</th>
 </tr>
 </thead>
 <tbody>
 <?php
-  if(mysqli_num_rows($posts) > 0){
-      while ($post= mysqli_fetch_array($posts)) {
 
+
+
+  if(mysqli_num_rows($apps) > 0){
+      while ($app= mysqli_fetch_array($apps)) {
   ?>
-  
   <tr >
-    <td><?php echo $post['id']?></td>
-    <td><?php echo $post['title']; ?></td>
-    <td><?php echo substr($post['content'], 0, 100 ); ?></td>
+    <td><?php $doc_id=$app['id']; echo $doc_id ; ?></td>
     <td>
-      <a class="" href="<?php echo 'blog.php?mode=delete&id='. $post['id'] ?>" onclick="return confirm('Delete This post?')">Delete
+        <?php 
+            $sp = "select name from patient where id='".$app['pat_id']."'";
+            $qp = mysqli_query($con, $sp);
+            $rp = mysqli_fetch_array($qp);
+            echo $rp['name'];
+        ?>
+    </td>
+    <td>
+        <?php 
+            $sd = "select * from doctor where id='".$app['doc_id']."'";
+            $qd = mysqli_query($con, $sd);
+            $rd = mysqli_fetch_array($qd);
+            echo $rd['name'];
+        ?>
+    </td>
+    <td><?php echo $app['date']; ?></td>
+    <?php
+          if(isset($_GET['mode']) && $_GET['mode']=='delete'){
+            $res = delete_appointment($app['id']);
+            if($res){
+              $s = "UPDATE doctor SET `status`=0 WHERE id = '".$rd['id'] ."'";
+              $q = mysqli_query($con, $s);
+          
+            }
+            header( "Location:appointments.php" );
+            exit;
+          }
+        
+      ?>
+
+    <td>
+      <a class="" href="<?php echo 'appointments.php?mode=delete&id='. $app['id'] ?>" onclick="return confirm('Delete This appointment?')">Delete
     </a>
     </td>
   </tr>
@@ -102,13 +126,18 @@ $posts = get_posts();
   <?php 
         }
   }
+
+
   ?>
   </tbody>
   
   </table>
   
   
-  
+  <?php
+        
+    
+  ?>
   
   </div>
   </div>

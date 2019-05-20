@@ -43,6 +43,15 @@ function get_posts(){
 	return $result;
 }
 
+function get_appointments(){
+	$conn = getConnection();
+	$sql = "SELECT * FROM appoint";
+
+    $result=mysqli_query($conn, $sql);
+
+	return $result;
+}
+
 
 function add_doctor($data){
     // print_r($data);
@@ -113,6 +122,15 @@ function delete_staff($id){
 function delete_post($id){
 	$conn = getConnection();
     $sql = "DELETE FROM posts WHERE id ='$id' LIMIT 1";
+    $result=mysqli_query($conn, $sql);
+
+    return $result;
+}
+
+
+function delete_appointment($id){
+	$conn = getConnection();
+    $sql = "DELETE FROM appoint WHERE id ='$id' LIMIT 1";
     $result=mysqli_query($conn, $sql);
 
     return $result;

@@ -53,6 +53,8 @@ $doctors = get_doctors();
 <a href="doctors.php" class="list-group-item list-group-item-action bg-light">doctors</a>
 <a href="staff.php" class="list-group-item list-group-item-action bg-light">staff</a>
 <a href="blog.php" class="list-group-item list-group-item-action bg-light">blog</a>
+<a href="appointments.php" class="list-group-item list-group-item-action bg-light">Appointments</a>
+
 
 </div>
 </div>

@@ -59,7 +59,7 @@
             if(isset($_GET['confirm'])){
                 $s = "UPDATE doctor SET `status`=1 WHERE id = '".$_SESSION['doc_id'] ."'";
                 $q = mysqli_query($conn, $s);
-                echo $_SESSION['user_id'];
+                // echo $_SESSION['user_id'];
                 if($q){
                     $sql = 'INSERT INTO `appoint`(`id`, `pat_id`, `doc_id`, `date`) Values '
                     .'(Null, "'.$_SESSION['user_id'].'", "'.$_SESSION['doc_id'].'", "'.$tomorrow.'")';
@@ -67,7 +67,7 @@
                     $result=mysqli_query($conn, $sql);
                     if($result)
                         echo "<script>alert('Done'); </script>";
-                    // header("Location: home.php");
+                        header("Location: home.php");
                 }
             }
 		?>
