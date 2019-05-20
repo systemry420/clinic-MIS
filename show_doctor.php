@@ -30,6 +30,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <title><?php echo $row['name']; ?></title>
+    <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.css" />
 
     <style>
         body {
@@ -158,6 +159,16 @@
                     <tr>
                         <th>Status</th>
                         <td><?php echo $row['status']; ?></td>
+                    </tr>
+                    <tr>
+                        <!-- if status=0 => available -->
+                        <!-- show appointment form -->
+                        <td colspan="2">
+                            <form action="appoint.php" method="get">
+                                <input type="hidden" name="doc_id" value="<?php echo $row['id']?>">
+                                <input class="btn btn-primary" type="submit" value="Make appointment">
+                            </form>
+                        </td>
                     </tr>
                 </table>
             </div>
