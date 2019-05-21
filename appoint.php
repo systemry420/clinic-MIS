@@ -26,7 +26,8 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Appointment</title>
+    <title>Appointment</title>
+    <link rel="stylesheet" href="admin/resources/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -42,7 +43,7 @@
 	</div>
 
 	<h2>Make an appointment to doctor: <?php echo '<span style="color:orange">'.$row['name'].'</span>'; ?> </h2>
-	<div class="main" style="height:100%; flex-wrap: wrap; justify-content: center;">
+	<div class="main" style="min-height:100%; flex-wrap: wrap; justify-content: center;">
 		<h3>The doctor is available on:</h3>
             <div class="tile" style="margin:auto; width: 40%">
                 <div class="item">
@@ -50,7 +51,7 @@
                         <h4 class="text-info">Date: <?php $tomorrow=date("Y-m-d", time() + 86400); echo $tomorrow; ?></h4>
                         <h4 class="text-info">From: <?php echo $row["from_time"]; ?></h4>
                         <h4 class="text-info">To: <?php echo $row["to_time"]; ?></h4>
-                        <input name="confirm" type="submit" value="Confirm">
+                        <input class="btn btn-primary" name="confirm" type="submit" value="Confirm">
                     </form>
                 </div>
             </div>
@@ -65,9 +66,10 @@
                     .'(Null, "'.$_SESSION['user_id'].'", "'.$_SESSION['doc_id'].'", "'.$tomorrow.'")';
                     
                     $result=mysqli_query($conn, $sql);
-                    if($result)
+                    if($result){
                         echo "<script>alert('Done'); </script>";
                         header("Location: home.php");
+                    }
                 }
             }
 		?>

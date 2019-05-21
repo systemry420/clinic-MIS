@@ -17,13 +17,13 @@
 			<li><a href ="doctors.php">Doctors</a></li> 
 			<li><a href ="staff.php">Staff</a></li> 
 			<li><a href ="blog.php">Blog</a></li> 
-			<li><a href ="login.php">LOGIN</a></li> 
 		</ul> 
 	</div>
 
 	<?php
 		if(isset($_GET['link'])){
-            $_SESSION['link'] = $_GET['link'];
+			$_SESSION['link'] = $_GET['link'];
+			$_SESSION['logged'] = 1;
             header('Location: show_doctor.php?link='.$_SESSION['link']);
         }
     ?>
