@@ -17,19 +17,18 @@
 	</style>
 </head>
 <body>
-<div class ="navbar nav">
+<div class ="navbar">
 		<ul>
-			<li><a href ="index.php">LOGO</a></li> 
+			<li><a href ="index.php">SIHATI</a></li> 
 			<li style="float:right"><a href ="login.php">Log in</a></li>  
 			<li style="float:right"><a href ="admin/adm-login.php">Admin</a></li> 
 		</ul>
 	</div>
 
-    <div id="page-content-wrapper">
+    <h1 class="mt-4">Signup here</h1>
 
-      <div class="container-fluid">
+      <div class="container-fluid main">
         <div class="col-6 form">
-          <h1 class="mt-4">Signup here</h1>
           <form action="?" method="post" enctype="multipart/form-data">
 
           <div class="form-group row">
@@ -97,7 +96,6 @@
   </div>
 
   </form>
-  </div>
 
   <?php
 require('functions.php');

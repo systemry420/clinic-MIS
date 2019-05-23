@@ -6,7 +6,6 @@ body{
     font-size:20px;
     margin:0;
     padding:0;
-    line-height:24px;
 }
 
 .navbar{
@@ -22,12 +21,15 @@ body{
     float: right;
 }
 
+h1{
+    margin-bottom: 0;
+}
 h1, h2, h3,
 .h1, .h2, .h3 {
-    background: rgb(0, 0, 80, 0.9);
+    background: linear-gradient(rgb(0, 0, 80, 1), rgb(100, 100, 220, 0.9));
     padding: 2%;
     color: #eee;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     text-align: center;
 }
 
@@ -57,55 +59,27 @@ h1, h2, h3,
     list-style-type:none;
 }
 
-.navbar ul ul{
+/* .navbar ul ul{
     display:none;
-}
-
-.navbar ul li:hover > ul{
-    display:block;
-}
+} */
 
 .navbar ul li:hover{
-    background:black;
-    transition:0.5s;
+    background:#222;
+    transition:0.3s;
 }
+
 .navbar ul li a:hover{
     color:white;
 }
 
-.navbar ul ul{
-    background:black;
-    padding:0;
-    margin:0;
-    position:absolute;
-    top:100%;
-}
-
-.navbar ul ul li{
-    float:none;
-    position:relative;
-}
-
-.navbar ul ul li a{
-    padding:20px;
-    color:white;
-    width:300px;
-    text-align:left;
-}
-
-.navbar ul ul li a:hover{
-    background:lightblue;
-    color:black;
-    transition:0.5s;
-}
-
 .form{
     margin:5% auto;
-    box-shadow: 0 0 25px #777;
-    background: rgba(200, 200, 200, 0.9);
+    box-shadow: 0 0 25px rgb(148, 146, 146);
+    background: rgb(206, 218, 221);
     padding: 2%;
-    border-radius: 1%;
+    border-radius: 5px;
     width: auto;
+    border: 3px solid #555;
 }
 
 input[type="radio"]{
@@ -114,14 +88,15 @@ input[type="radio"]{
 }
 
 .main {
-    background: rgba(10, 30, 60, 0.9);
+    background: rgba(10, 30, 60, 0.2);
     height: 100%;
     width: 100%;
+    padding: 1%;
 }
 .main div.tile {
-    width: 25%;
-    margin:2%;
-    box-shadow: 0 0 35px #111;
+    width: 20%;
+    margin:1%;
+    box-shadow: 0 0 35px #000;
     background: #fff;
     padding: 1%;
     border-radius: 2%;
@@ -133,7 +108,7 @@ input[type="radio"]{
 
 a[href="logout.php"]{
     float: right;
-    background: rgb(128, 25, 25);
+    background: rgb(182, 27, 27);
 }
 
 .main div.tile a {
@@ -142,14 +117,15 @@ a[href="logout.php"]{
 
 form input{
     width:100%;
-    margin-bottom:20px;
+    margin-bottom:10px;
     background: white;
 }
 
 .form input[type="text"],
 .form input[type="email"],
 .form input[type="password"]{
-    outline:none;
+    outline: 1px solid #2a3a66;
+    /* outline:none; */
     height:40px;
     font-size:16px;
 }

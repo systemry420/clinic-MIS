@@ -27,7 +27,7 @@
 
     <style>
         body {
-            background: url('img/1.jpg');
+            /* background: url('img/1.jpg'); */
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -65,7 +65,7 @@
 	</div>
 
     
-    <div class="main" style="width:80%; margin: 1% auto; ">
+    <div class="main" style="background:rgb(10, 30, 60, 0.9); width:80%; margin: 1% auto; ">
         <div class="name">
             <h1>
                <?php echo $row['title']; ?>
