@@ -10,8 +10,8 @@
 	<link rel="stylesheet" href="style.css">
 	<style>
 		.carousel-inner {
-			height: 60%;
-			width: 60%;
+			height: 80%;
+			width: 80%;
 			margin: auto;
 		}
 
@@ -55,7 +55,6 @@
 		</ul>
 	</div>
 
-	<h1>Welcome to our website</h1>
 	<div class="main" style="">
 		<div class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">

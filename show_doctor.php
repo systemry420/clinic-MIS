@@ -4,24 +4,19 @@
     $conn = getConnection();
     // echo $_SESSION['link'];
 
-    if(isset($_SESSION['user'])){
-        if(isset($_SESSION['link'])){
-            $id = $_SESSION['link'];
-            $res = get_doctor_details($id);
-            $row = mysqli_fetch_array($res);
-        }
-    
-        if(isset($_GET['link'])){
-            $id = $_GET['link'];
-            $res = get_doctor_details($id);
-            $row = mysqli_num_rows($res)>0? mysqli_fetch_array($res): [] ;
-        }
+    if(isset($_SESSION['link'])){
+        $id = $_SESSION['link'];
+        $res = get_doctor_details($id);
+        $row = mysqli_fetch_array($res);
+    }
 
-        $_SESSION['doc_id'] = $id;
+    if(isset($_GET['link'])){
+        $id = $_GET['link'];
+        $res = get_doctor_details($id);
+        $row = mysqli_num_rows($res)>0? mysqli_fetch_array($res): [] ;
     }
-    else{
-        header('Location: login.php');
-    }
+
+    $_SESSION['doc_id'] = $id;
 
 ?>
 <!DOCTYPE html>
@@ -37,7 +32,7 @@
 
     <style>
         body {
-            background: url('img/1.jpg');
+            /* background: url('img/1.jpg'); */
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -77,6 +72,7 @@
             border: 3px solid #333;
             border-collapse: collapse;
             padding: 2%;
+            color: #111;
         }
 
         .related {
@@ -172,7 +168,7 @@
                             ?>
                                 <form action="appoint.php" method="get">
                                     <input type="hidden" name="doc_id" value="<?php echo $row['id']?>">
-                                    <input class="btn btn-primary" type="submit" value="Make appointment">
+                                    <input class="btn btn-primary" name="appoint" type="submit" value="Make appointment">
                                 </form>
                                 
                             <?php

@@ -90,7 +90,7 @@ input[type="radio"]{
 .main {
     background: rgba(10, 30, 60, 0.2);
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
     padding: 1%;
 }
 .main div.tile {

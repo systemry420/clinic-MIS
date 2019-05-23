@@ -14,11 +14,11 @@
         $row = mysqli_fetch_array($query);
         
         
-        echo  $_SESSION['logged'];
+        echo  $_SESSION['doc_id'];
 
-        if($_SESSION['logged'] == 1)
-            header('Location: show_doctor.php?'.$_SESSION['link']);
-        if($_SESSION['logged'] == 2)
+        if(($_SESSION['doc_id'])>0)
+            header('Location: appoint.php?link='.$_SESSION['doc_id']);
+        else if($_SESSION['logged'] == 2)
             header('Location: show_blog.php?'.$_SESSION['blog']);
         else
             header('Location: home.php');

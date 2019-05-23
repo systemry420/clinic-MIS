@@ -1,6 +1,6 @@
 <!-- todo:
     - the doc can welcome 5 appoints a day
-    - give app id for patient to use when deal is closed
+    - give appointment id for patient to use when visiting clinic
 -->
 <?php
     session_start();
@@ -57,6 +57,8 @@
             </div>
 		<?php
 
+
+        if(isset($_SESSION['user'])){
             if(isset($_GET['confirm'])){
                 $s = "UPDATE doctor SET `status`=1 WHERE id = '".$_SESSION['doc_id'] ."'";
                 $q = mysqli_query($conn, $s);
@@ -64,7 +66,7 @@
                 if($q){
                     $sql = 'INSERT INTO `appoint`(`id`, `pat_id`, `doc_id`, `date`) Values '
                     .'(Null, "'.$_SESSION['user_id'].'", "'.$_SESSION['doc_id'].'", "'.$tomorrow.'")';
-                    
+    
                     $result=mysqli_query($conn, $sql);
                     if($result){
                         echo "<script>alert('Done'); </script>";
@@ -72,6 +74,13 @@
                     }
                 }
             }
+        }
+        else{
+            header('Location: login.php');
+        }
+    
+
+
 		?>
 	</div>
 

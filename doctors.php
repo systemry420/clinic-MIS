@@ -29,7 +29,7 @@
     ?>
     
     
-	<h1>You can view doctors after login</h1>
+	<h1>You can make a reservation with doctors after login</h1>
 	<div class="main" style="display: flex; flex-wrap: wrap; justify-content: center;">
 
 		<?php
