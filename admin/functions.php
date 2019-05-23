@@ -92,7 +92,7 @@ function add_post($data)
 {
     $title = $data['title'];
     $content = $data['content'];
-    print_r($content);
+    // print_r($content);
 
     $conn = getConnection();
     $sql = 'INSERT INTO `posts`(`id`, `title`, `content`) Values '

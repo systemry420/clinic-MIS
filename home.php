@@ -32,7 +32,7 @@
 						<div class="item">
 							<form action="?" method="get">
 								<a href="<?php echo 'special/'.$row["name"].'.php'; ?>">
-									<img src="<?php echo 'img/'.$row['img']; ?>" style="width: 90%; height: 50%;" /><br>
+									<img src="<?php echo 'img/'.$row['img']; ?>" style="width: 90%; height: 30%;" /><br>
 									<h3 class="text-info"><?php echo $row["name"]; ?></h3>
 								</a>
 							</form>

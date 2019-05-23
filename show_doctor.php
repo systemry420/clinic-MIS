@@ -32,11 +32,11 @@
 
     <style>
         body {
-            /* background: url('img/1.jpg'); */
             background-repeat: no-repeat;
             background-size: cover;
         }
         .doctor {
+            background: rgba(55, 55, 77, 0.6);
             display: flex;
             flex-direction: column;
             justify-content: center;
